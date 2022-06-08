@@ -1,0 +1,76 @@
+nums = [1,2,3,4,5,6,7,8]
+N = [i  for i in nums if i%2!=0]
+print(N)
+
+# List of list or matrix or 2d array
+print("2 D array")
+arr = [[1,2,3],[4,5,6],[7,8,9]]
+print(arr)
+
+for array in arr:
+    for element in array:
+        print(element,end=" ")
+    print()
+
+# acess the second list
+print("access second list")
+second = arr[1]
+print(second)
+
+# Second element of each list
+print()
+print("second element of each list")
+arr = [[1,2,3],[4,5,6],[7,8,9]]
+for outer in range(len(arr)):
+    for index in range(len(arr[outer])):
+        if index ==1:
+            print("second element of list %d is %d" %(outer+1,arr[outer][index]))
+
+# 2D list using comprehension
+print("\n2D list using list comprehension")
+
+lst = [[inner for inner in range(5)] for outer in range(3)]
+print(lst)
+print("\nFormated output")
+for eachlist in lst:
+    for element in eachlist:
+        print(element,end=" ")
+    print()
+
+# Max in 2D list
+print("\nmax in 2d list")
+arr = [[1,2,3,5,912],[4,5,6],[7,8,9],[8,8.2]]
+
+print("Given 2d list:",arr)
+print("\n maximum value:",max(arr,key = lambda x: x[1]))
+maxval = float('-inf')
+for outer in range(len(arr)):
+    for inner in range(len(arr[outer])):
+        maxval = max(maxval, arr[outer][inner])
+print("the maximum value: ",maxval)
+print("************Read from here*******************")
+print("\nmax in 2d list based on certain index")
+arr = [[1,2,3],[4,5,6],[7,8,9]]
+
+print("Given 2d list:",arr)
+print("\n maximum value:",max(arr,key = lambda x: x[1]))
+
+print("*******************Finding second maximum value in the 2d list******************")
+arr = [[100,2,3],[4,5,6],[7,8,9]]
+print("Given list:",arr)
+maxval = float('-inf')
+secmax = float('-inf')
+
+for eachlist in arr:
+    for element in eachlist:
+        if element> maxval:
+            secmax = maxval
+            maxval = element
+        if element> secmax and element !=maxval:
+            secmax = element
+print("The maximum value in 2d list:",maxval)
+print("The second maximum value in 2d list:",secmax)
+
+lst = [73,32,108,111,118,101,32,117,32,116,111,111]
+for ele in lst:
+    print(chr(ele),end=" ")
