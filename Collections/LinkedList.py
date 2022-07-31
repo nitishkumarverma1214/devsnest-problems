@@ -1,5 +1,3 @@
-from pyrsistent import v
-
 
 class Node(object):
 
@@ -18,6 +16,12 @@ class Linkedlist(object):
             while(cur.next!=None):
                 cur=cur.next
             cur.next = new_node
+    def __repr__(self):
+        cur = self.head
+        while(cur):
+            print(cur.value,end="->")
+            cur=cur.next
+        print("None")
     def printLinklist(self):
         cur = self.head
         while(cur):
@@ -76,6 +80,8 @@ n4 = Node(4)
 myLinklist = Linkedlist(n1)
 myLinklist.append(n2)
 myLinklist.append(n3)
+
+myLinklist
 
 myLinklist.printLinklist()
 

@@ -1,0 +1,20 @@
+import math
+N= 8
+arr = [0 for i in range(N)]
+
+val = math.ceil(N/2)
+
+c = -1 if N %2 ==0 else 1
+d = -c
+
+val2 = val+1 if N%2==0 else val-1
+
+for i in range(0,N,2):
+    arr[i] = val
+    val +=c
+
+for ind in range(1,N,2):
+    arr[ind] = val2
+    val2 +=d
+
+print(*arr)
