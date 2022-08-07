@@ -7,7 +7,8 @@ Q = deque()
 # Helper function helps us in adding data
 # to the tree in Level Order
 def insertValue(val, root):
-    newnode = TreeNode(val)
+    
+    newnode = TreeNode(val) if val!=None else TreeNode('X')
     if Q:
         temp = Q[0]
     if root == None:

@@ -1,40 +1,43 @@
 from collections import deque
 import math
+
 from Tree import TreeNode,print_tree
-from array_to_levelorderTree import constructTreeLevelOrder
+from array_to_levelorderTree import createTree
 
 def maxWidth(root):
-    if not root:
-        return root 
-    level = 0
-    maxw = 1
     
-    q = deque([root,None])
+    maxw = 0
+    q = deque([(root,0),None])
+    st = []
     while q:
+        
         x = q.popleft()
-
+        
         if x:
-            print(x.val,end=" ")
-            if x.left:
-                q.append(x.left)
-            if x.right:
-                q.append(x.right)
-            
+            st.append(x[1])
+            if x[0].left:
+                q.append((x[0].left,x[1]*2+1))
+            if x[0].right:
+                q.append((x[0].right,x[1]*2+2))
+
              
         else:
-            print("X",end=" ")
+            maxw = max(maxw,st[-1]-st[0]+1)
+            st = []
             if q:
                 q.append(None)
+
+        
             
-          
+    return maxw +1
    
 
 
 def main():
     arr =  [1,2,3,4,5,None,8,None,None,None,None,6,7]
-    root = constructTreeLevelOrder(arr,0,len(arr))
-    print_tree(root)
-    #maxWidth(root)
+    root = createTree(arr,None)
+    #print_tree(root)
+    print(maxWidth(root))
    
 if __name__=="__main__":
     main()
