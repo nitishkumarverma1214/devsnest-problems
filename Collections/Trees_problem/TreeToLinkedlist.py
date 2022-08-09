@@ -7,16 +7,21 @@ def flatten(root):
         ls,le = flatten(root.left)
         rs,re = flatten(root.right)
 
-        if not le:
-            l=le = root 
-        else:
-            l = ls 
+        if not root.left and not root.right:
+            return root,root 
         
-        #temp = root.right 
-        root.right = ls 
-        le.right = rs 
-
-        return l,re 
+        if not root.left:
+            root.right = rs 
+            return root,re
+        elif not root.right:
+            root.left = None 
+            root.right = ls 
+            return root,le 
+        else:
+            root.left = None 
+            root.right = ls 
+            le.right = rs 
+            return root,re 
 
     return None,None 
 
