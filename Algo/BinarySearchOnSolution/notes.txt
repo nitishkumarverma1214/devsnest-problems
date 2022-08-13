@@ -1,0 +1,9 @@
+for binary search on solution:
+
+case 1. min(max(sum))
+
+    assume ans sa less ko consider karage 
+
+case 2. max(min(sum))
+
+    assume ans tak atleast consider karage 
